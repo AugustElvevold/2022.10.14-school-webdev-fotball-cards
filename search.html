@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search players</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon/apple-touch-icon" href="images/search-icon.png">
+    <!-- Grid styling -->
+    <link rel="stylesheet" href="css/grid-style.css">
+    <!-- Universal styling -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- TWO SEARCH FUNCTIONS -->
+<body>
+    <nav>
+        <a href="Homepage.html" title="Homepage">
+            <i id="home-icon" class="fa fa-house fa-2x"></i>
+        </a>
+        <ul class="display-nav-list">
+            <li><a href="Homepage.html">Home</a ></li>
+            <li><a href="search.html" class="currentPage">Search</a ></li>
+            <li><a href="addNew.html">Add</a ></li>
+            <li><a href="update.html">Update</a ></li>
+            <li><a href="delete.html">Delete</a ></li>
+        </ul>
+    </nav>
+    <!-- Search section -->
+    <section class="flex-center margin-top-small">
+        <div id="search-inputs">
+            <input id="name-search-input" type="text" placeholder="Search by player name">
+            <input id="club-search-input" type="text" placeholder="Search by club name">
+            <input id="btn-search" class="button" type="button" value="Search">
+        </div>
+    </section>
+    <section class="flex-center">
+        <p id="results-output" class="subtle-text"></p>
+    </section>
+
+    <!-- Display search results -->
+    <!-- <section id="search-results-output" class="container"> -->
+    <section class="flex-center-1280px">
+        <ul id="player-cards-output" class="container">
+        </ul>
+    </section>
+
+    <script type="module">
+        import getAllPlayers from './scripts/all_players.js'
+
+        const resultsOutput = document.getElementById("results-output");
+        const output = document.getElementById("player-cards-output");
+        
+        const searchNameInput = document.getElementById("name-search-input")
+        const searchClubInput = document.getElementById("club-search-input")
+        const btnSearch = document.getElementById("btn-search");
+        
+        
+        const allPlayers = getAllPlayers();
+
+        const showPlayers=()=>{
+            let htmlText = ""
+            let resultText = ""
+            let results = 0;
+            
+            let name = searchNameInput.value.toLowerCase()
+            let club = searchClubInput.value.toLowerCase()
+
+            allPlayers.forEach(player=>{
+                let fullname = player.firstname.toLowerCase() + " " + player.lastname.toLowerCase()
+                let team = player.team.toLowerCase()
+
+                // Adds a card to htmlText, only if player object contains any of the input search strings
+                if((fullname.includes(name) || fullname.includes(name)) && (team.includes(club))){
+                    htmlText += `
+                        <li class="card">
+                            <h3 class="text-center">${player.firstname} ${player.lastname}</h3>
+                            <img src="${player.imgSrc}" alt="player image">
+                            <p>Team: ${player.team}</p>
+                            <p>Born: ${player.birthdateFormated} (age ${player.age})</p>
+                            <p>Height: ${player.height} cm</p>
+                            <p>Weight: ${player.weight} kg</p>
+                        </li>
+                    `
+                    results++
+                }
+            })
+
+            // Custom result text based on which input is used
+            if(name == "" && club == ""){
+                resultText = `All results (${results})`
+            }else if(name == ""){
+                resultText = `Search for club '${club}' gave ${results} results:`
+            }else if(club == ""){
+                resultText = `Search for name '${name}' gave ${results} results:`
+            }else{
+                resultText = `Search for name '${name}' and team '${club}' gave ${results} results:`
+            }
+
+            resultsOutput.innerHTML = resultText
+            output.innerHTML = htmlText;
+        }
+
+        (()=>{
+            showPlayers()
+        })();
+
+        btnSearch.onclick = showPlayers;
+
+        // Makes input boxes use search function on enterpress, instead of having to click the button
+        searchNameInput.addEventListener('keypress', function(e){
+            if(e.key === "Enter")
+                showPlayers();
+        })
+        searchClubInput.addEventListener('keypress', function(e){
+            if(e.key === "Enter")
+                showPlayers();
+        })
+        
+    </script>
+</body>
+</html>

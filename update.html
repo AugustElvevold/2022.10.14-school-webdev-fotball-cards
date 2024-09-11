@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <!-- Grid styling -->
+    <link rel="stylesheet" href="css/grid-style.css">
+    <!-- Universal styling -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>    
+    <nav>
+        <a href="Homepage.html" title="Homepage">
+            <i id="home-icon" class="fa fa-house fa-2x"></i>
+        </a>
+        <ul class="display-nav-list">
+            <li><a href="Homepage.html">Home</a ></li>
+            <li><a href="search.html">Search</a ></li>
+            <li><a href="addNew.html">Add</a ></li>
+            <li><a href="update.html" data-edit="Update" class="currentPage">Update</a ></li>
+            <li><a href="delete.html">Delete</a ></li>
+        </ul>
+    </nav>
+
+    
+
+    <section id="edit-card-overlay" >
+        <!-- update menu with prefilled values comes here -->
+    </section>
+    
+    <!-- Message on top -->
+    <section class="flex-center">
+        <p class="subtle-text">Click "Update" on players you want to update</p>
+    </section>
+
+    <section class="flex-center-1280px">
+        <ul id="player-cards-output" class="container">
+            <!-- Display all players -->
+        </ul>
+    </section>
+
+    <script type="module" src="./scripts/edit_players.js"></script>
+</body>
+</html>

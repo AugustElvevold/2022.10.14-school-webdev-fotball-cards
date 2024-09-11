@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new player</title>
+    <!-- Grid styling -->
+    <!-- <link rel="stylesheet" href="css/grid-style.css"> -->
+    <!-- Universal styling -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- ADD NEW -->
+<body>
+    <nav>
+        <a href="Homepage.html" title="Homepage">
+            <i id="home-icon" class="fa fa-house fa-2x"></i>
+        </a>
+        <ul class="display-nav-list">
+            <li><a href="Homepage.html">Home</a ></li>
+            <li><a href="search.html">Search</a ></li>
+            <li><a href="addNew.html" class="currentPage">Add</a ></li>
+            <li><a href="update.html">Update</a ></li>
+            <li><a href="delete.html">Delete</a ></li>
+        </ul>
+    </nav>
+    <h3 class="text-center margin-top-small">Enter details for new player</h3>
+    <section class="flex-center">
+        <div class="card card--edit-player">
+            <p>
+                <label for="player-firstname">Firstname: </label>
+                <input id="player-firstname" class="text-input" type="text" placeholder="John"></input>
+            </p>
+            <p>
+                <label for="player-lastname">Lastname: </label>
+                <input id="player-lastname" class="text-input" type="text" placeholder="Doe"></input>
+            </p>
+            <p>
+                <label for="player-imgSrc">Select image: </label>
+                <select id="player-imgSrc" name="Image source">
+                    <option value="images/no-image.png">None</option>
+                    <option value="images/Abedi-Pele.webp">Abedi Pele</option>
+                    <option value="images/Didier-Drogba.jpeg">Didier Drogba</option>
+                    <option value="images/Michel-Essien.jpeg">Michel Essien</option>
+                    <option value="images/Nwankwo-Kanu.jpeg">Nwankwo Kanu</option>
+                    <option value="images/Riyad-Mahrez.jpeg">Riyad Mahrez</option>
+                    <option value="images/Roger-Milla.jpeg">Roger Milla</option>
+                    <option value="images/Sadio-Mané.png">Sadio Mané</option>
+                    <option value="images/Samuel-Eto'o.jpeg">Samuel Eto'o</option>
+                    <option value="images/Yaya-Touré.jpeg">Yaya Touré</option>
+                    <option value="images/Joker.jpeg">Joker</option>
+                </select>
+            </p>
+            <img id="img-preview" src="images/no-image.png" alt="insert image">
+            <p>
+                <label>Team: </label> 
+                <input id="player-team" class="text-input" type="text" placeholder="Smith FC">
+            </p>
+            <p>
+                <label>Born:  </label> 
+                <input id="player-born" class="text-input" type="date" placeholder="1990-06-15">
+            </p>
+            <p>
+                <label>Height (cm):  </label> 
+                <input id="player-height" class="text-input" type="number" placeholder="180">
+            </p>
+            <p>
+                <label>Weight (kg):  </label> 
+                <input id="player-weight" class="text-input" type="number" placeholder="70">
+            </p>
+            <input id="submit-new-player" type="button" class="display-flex-center h5" value="Add"></input>
+            
+        </div>
+    </section>
+
+    <script type="module" src="./scripts/edit_players.js"></script>
+</body>
+</html>

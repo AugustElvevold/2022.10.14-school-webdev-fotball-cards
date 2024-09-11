@@ -1,0 +1,233 @@
+/* Font Awesome */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+
+/* BLOCK */
+/* header, container, menu, checkbox */
+:root{
+    --color-background: #ccc;
+    --color-background-light: #eee;
+
+    --color-text: #444;
+    --color-text-hover: black;
+
+    --color-blue: rgb(38, 126, 184);
+    --color-blue-light: rgb(55, 158, 226);
+
+    --color-red: rgb(184, 38, 38);
+    --color-red-light: rgb(226, 55, 55);
+}
+body{
+    font-family: system-ui, arial;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 60px 20px;
+}
+p{
+    font-size: small;
+    margin: 13px;
+    overflow: hidden;
+}
+h3{
+    margin: 12px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-background-light);
+    height: 60px;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+ul{
+    list-style: none;
+}
+a, i, input{
+    color: var(--color-text);
+}
+a{
+    text-decoration: none;
+}
+i:hover, a:hover{
+    color: var(--color-text-hover);
+}
+input, .card, select{
+    background-color: var(--color-background-light);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+input{
+    font-size: small;
+    padding: 10px 20px;
+}
+input[type=button]:hover{
+    background-color: var(--color-blue-light);
+    color: rgb(255, 255, 255);
+}
+label{
+    margin-right: 15px;
+    white-space: nowrap;
+}
+.card{
+    position: relative;
+    width: 250px;
+    padding: 0;
+    margin: 0 0 20px;
+}
+#alert-container{
+    position: absolute;
+    margin: -76px -20px;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+    transition: .5s;
+}
+.alert{
+    width: fit-content;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ELEMENTS */
+/* menu item, list item, checkbox caption */
+#home-icon{
+    margin-left: 20px;
+}
+.card img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+.card--edit-player input[type=button]{
+    width: calc(100% - 30px);
+    margin: 15px;
+}
+.card--edit-player input{
+    width: 170px;
+}
+.card--edit-player select{
+    padding: 3px 10px;
+    width: 200px;
+}
+
+.card--edit-player{
+    padding-top: 15px;
+    width: 330px;
+}
+.card--edit-player p{
+    margin: 2px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.button--Update{
+    cursor: pointer;
+    width: fit-content;
+    color: white;
+    background-color: var(--color-blue);
+    opacity: 80%;
+    padding: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+.button--Update:hover{
+    opacity: 100%;
+}
+.button--editcard{
+    opacity: 80%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+.button--editcard:hover{
+    opacity: 100%;
+}
+.button--Delete{
+    cursor: pointer;
+    width: fit-content;
+    color: white;
+    background-color: var(--color-red);
+    padding: 10px;
+    font-weight: bold;
+}
+.button--Delete:hover{
+    background-color: var(--color-red-light) !important;
+}
+
+.overlay-menu{
+    margin: -76px -20px;
+    display: flex;
+    width: 100vw;
+    height: 110vh;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 101;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.image-select{
+    position: absolute;
+    z-index: 1;
+}
+
+.currentPage{
+    color: var(--color-blue);
+    font-weight: bold;
+}
+.currentPage:hover{
+    color: var(--color-blue-light);
+}
+.display-nav-list{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 10px;
+}
+.display-nav-list>li{
+    margin: auto 10px;
+}
+#player-cards-output{
+    margin: 0;
+    padding: 0;
+}
+
+/* MODIFIERS */
+/* disabled, highlighted, fixed, size big */
+.text-center{
+    text-align: center;
+}
+.missing-input{
+    border-color: red;
+}
+.margin-top-small{
+    margin-top: 10px;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+.color-red{
+    color: var(--color-red);
+}
+.color-red:hover{
+    color: var(--color-red-light);
+}
+.color-backgound{
+    background-color: var(--color-background);
+}
+.subtle-text{
+    color: #777;
+}
